@@ -39,7 +39,9 @@ def init():
 
 
 def put_message(message):
-    pass
+    print(message)
+    CHANNEL.basic_publish(exchange=TO_1C_EXCHANGE, routing_key=TO_1C_QUEUE, body=message)
+
 
 if __name__ == '__main__':
     init()
@@ -50,5 +52,4 @@ if __name__ == '__main__':
     })
 
     put_message(message)
-
-    print(message)
+    
